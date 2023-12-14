@@ -18,4 +18,10 @@ class city extends Model
     {
         return $this->hasMany(User::class);
     }
+
+    //relacion inversa uno uno con la tabla supplier
+    public function supplier()
+    {
+        return $this->belongsTo(supplier::class);
+    }
 }
