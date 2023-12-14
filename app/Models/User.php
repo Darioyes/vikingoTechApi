@@ -70,4 +70,10 @@ class User extends Authenticatable
         return $this->belongsTo(VikingoRolController::class);
     }
 
+    //relacion de uno a muchos con la tabla sales
+    public function sales()
+    {
+        return $this->hasMany(Sale::class);
+    }
+
 }
