@@ -21,4 +21,10 @@ class maintenance extends Model
         'advance',
         'users_id',
     ];
+
+    //relacion de muchos a uno con la tabla users
+    public function users()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

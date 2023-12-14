@@ -12,4 +12,10 @@ class vikingo_rol extends Model
     protected $fillable = [
         'name_admin',
     ];
+
+    //relacion uno a muchos con la tabla users
+    public function users()
+    {
+        return $this->hasMany(User::class);
+    }
 }

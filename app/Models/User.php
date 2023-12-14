@@ -3,6 +3,7 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+use App\Http\Controllers\VikingoRolController;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -50,4 +51,23 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+    //relacion muchos a uno con la tabla cities
+    public function cities()
+    {
+        return $this->belongsTo(City::class);
+    }
+
+    //relacion de uno a muchos con la tabla maintenances
+    public function maintenances()
+    {
+        return $this->hasMany(Maintenance::class);
+    }
+
+    //relacion de muchos a uno con la tabla vikingo_roles
+    public function vikingo_roles()
+    {
+        return $this->belongsTo(VikingoRolController::class);
+    }
+
 }

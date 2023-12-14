@@ -12,4 +12,10 @@ class city extends Model
     protected $fillable = [
         'city',
     ];
+
+    //relacion uno a muchos con la tabla users
+    public function users()
+    {
+        return $this->hasMany(User::class);
+    }
 }
