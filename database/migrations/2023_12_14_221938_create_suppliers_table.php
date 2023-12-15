@@ -21,7 +21,7 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->text('description')->nullable();
             $table->timestamps();
-            $table->foreignId('cities_id')->constrained('cities');
+            $table->foreignId('cities_id')->constrained('cities')->onDelete('restrict')->onUpdate('cascade');
         });
     }
 

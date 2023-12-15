@@ -21,12 +21,13 @@ return new class extends Migration
             $table->string('phone1', 12)->unique();
             $table->string('phone2', 12)->nullable();
             $table->string('address', 255)->nullable();
+            $table->string('image', 255)->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();
-            $table->foreignId('cities_id')->constrained('cities');
-            $table->foreignId('vikingo_rol_id')->constrained('vikingo_roles');
+            $table->foreignId('cities_id')->constrained('cities')->onDelete('restrict')->onUpdate('cascade');
+            $table->foreignId('vikingo_rol_id')->constrained('vikingo_roles')->onDelete('restrict')->onUpdate('cascade');
         });
     }
 

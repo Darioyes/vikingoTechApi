@@ -24,7 +24,7 @@ return new class extends Migration
             $table->string('image4', 100)->nullable();
             $table->enum('advance', ['joined','in_progress','authorization','finalized'])->default('joined');
             $table->timestamps();
-            $table->foreignId('users_id')->constrained('users');
+            $table->foreignId('users_id')->constrained('users')->onDelete('restrict')->onUpdate('cascade');
         });
     }
 

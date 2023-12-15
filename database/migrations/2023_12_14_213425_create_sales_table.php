@@ -18,8 +18,8 @@ return new class extends Migration
             $table->decimal('total_sale', 10, 2);
             $table->decimal('total_cost', 10, 2);
             $table->timestamps();
-            $table->foreignId('user_id')->constrained('users');
-            $table->foreignId('product_id')->constrained('products');
+            $table->foreignId('user_id')->constrained('users')->onDelete('restrict')->onUpdate('cascade');
+            $table->foreignId('product_id')->constrained('products')->onDelete('restrict')->onUpdate('cascade');
         });
     }
 

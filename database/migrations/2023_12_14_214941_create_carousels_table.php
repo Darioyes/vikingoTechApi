@@ -17,7 +17,7 @@ return new class extends Migration
             $table->double('discount', 5,2)->default(0);
             $table->string('image', 100);
             $table->timestamps();
-            $table->foreignId('product_id')->constrained('products');
+            $table->foreignId('product_id')->constrained('products')->onDelete('restrict')->onUpdate('cascade');
         });
     }
 

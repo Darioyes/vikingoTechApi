@@ -18,8 +18,8 @@ return new class extends Migration
             $table->text('description');
             $table->string('purcharse_order');
             $table->timestamps();
-            $table->foreignId('products_id')->constrained('products');
-            $table->foreignId('suppliers_id')->constrained('suppliers');
+            $table->foreignId('products_id')->constrained('products')->onDelete('restrict')->onUpdate('cascade');
+            $table->foreignId('suppliers_id')->constrained('suppliers')->onDelete('restrict')->onUpdate('cascade');
         });
     }
 

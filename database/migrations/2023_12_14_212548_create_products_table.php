@@ -27,7 +27,7 @@ return new class extends Migration
             $table->string('image5', 255)->nullable();
             $table->string('color', 50)->nullable();
             $table->timestamps();
-            $table->foreignId('category_id')->constrained('categories');
+            $table->foreignId('category_id')->constrained('categories')->onDelete('restrict')->onUpdate('cascade');
         });
     }
 
